@@ -51,8 +51,7 @@ post "/create-blog" do
 end
 
 # Logout functionality
-
-post "/logout" do
+get "/logout" do
 	session[:user_id] = nil
 	redirect "/"
 end

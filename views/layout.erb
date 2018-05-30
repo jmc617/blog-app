@@ -5,6 +5,7 @@
     <title>Blog App</title>
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="icon" href="../images/pencil-icon.png">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto:700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:700" rel="stylesheet">
   </head>
@@ -15,23 +16,25 @@
     </div>
     <div class="rightNav">
       <a class="navLink" href="/signup">Sign up</a>
-      <a class="navLink" href="/login">Login</a>
+      <% if current_user %>
+        <a class="navLink" href="/logout">Log Out</a>
+      <% else %>
+        <a class="navLink" href="/login">Log In</a>
+      <% end %>
       <a class="navLink" href="/newPost">New Post</a>
       <a class="navLink" href="/profile">Profile</a>
-      <form action="/logout" method='post'>
-        <input type="submit" value="Logout">
-      </form>
     </div>
   </nav>
 
   <body>
     <div class="container">
-      <%=yield%>
       <h3>
-		      <% if current_user %>
-			       <%= current_user.name  %>
-		      <% end %>
-	    </h3>
+          <% if current_user %>
+             Thanks for using The Blog App, <%= current_user.name  %>!
+          <% end %>
+      </h3>
+
+      <%=yield%>
     </div>
   </body>
 </html>
