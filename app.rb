@@ -72,6 +72,5 @@ end
 
 get "/show/:id/profile" do
 @user = User.find(params[:id])
-# @blogs = @user.blogs
 erb :'/users/profile'
 end

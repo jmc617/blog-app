@@ -22,7 +22,7 @@
         <a class="navLink" href="/login">Log In</a>
       <% end %>
       <a class="navLink" href="/newPost">New Post</a>
-      <a class="navLink" href="/profile">Profile</a>
+      <a class="navLink" href="/show/<%= session[:user_id] %>/profile">Profile</a>
     </div>
   </nav>
 

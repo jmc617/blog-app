@@ -1,3 +1,4 @@
+
 <style>
 /* BACKGROUND */
 body{
@@ -90,6 +91,12 @@ h2{
 }
 </style>
 
+<% if current_user  &&  current_user.id == @user.id%>
+  <div><%= 'hello' %><div>
+<% else %>
+<div>
+  <%= @user.name %>
+  <% blogs = @user.blogs %>
 <div class="profilePosts">
   <h2><%= @user.name %>'s Posts</h2>
   <% blogs = @user.blogs %>
@@ -102,3 +109,4 @@ h2{
   </div>
   <% end %>
 </div>
+<% end %>
