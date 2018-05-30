@@ -7,6 +7,7 @@ require './models'
 #homepage
 get '/' do
   @users = User.all
+  @blogs = Blog.all
   erb :'users/index'
 end
 
