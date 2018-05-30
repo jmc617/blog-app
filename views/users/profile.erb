@@ -1,16 +1,112 @@
+
+<style>
+/* BACKGROUND */
+body{
+  background: linear-gradient(to bottom right, #e75176, #6ccfd4);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+
+/* HEADER / NAVBAR */
+nav{
+  text-align: center;
+  background: rgba(226, 226, 226, 0.65);
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+}
+nav a{
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+  display: inline-block;
+}
+nav a:visited{
+  color: black;
+}
+nav a:hover{
+  color: #0099FF;
+}
+.navLink{
+  margin: 25px 40px 0 0;
+  float: right;
+  border-left: 2px solid #0099FF;
+  padding-left: 1px;
+}
+.leftNav{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  text-align: left;
+}
+.rightNav{
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+#banner{
+  font-family: 'Permanent Marker', cursive;
+  font-size: 50px;
+  text-shadow: none;
+  display: inline-block;
+  margin: 0 0 5px 30px;
+}
+
+/* CONTENT WHERE YIELD IS */
+.container{
+  width: 80%;
+  text-align: center;
+  background: rgba(226, 226, 226, 0.65);
+  margin: 20px auto;
+  border-radius: 5px;
+  padding: 10px 0;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+h2{
+  text-align: left;
+  margin-left: 40px;
+}
+#postTitle{
+  margin: 5px 40px 10px 40px;
+  font-size: 20px;
+}
+#postContent{
+  margin: 0 40px 5px 40px;
+}
+#postAuthorDate{
+  margin-right: 40px;
+  margin-bottom: 5px;
+  text-align: right;
+}
+.postDiv{
+  border-bottom: 1px solid grey;
+  margin: 0 40px;
+  text-align: left;
+}
+.profilePosts{
+  height: 100vh;
+}
+</style>
+
 <% if current_user  &&  current_user.id == @user.id%>
   <div><%= 'hello' %><div>
 <% else %>
 <div>
   <%= @user.name %>
   <% blogs = @user.blogs %>
+<div class="profilePosts">
+  <h2><%= @user.name %>'s Posts</h2>
+  <% blogs = @user.blogs %>
 
   <% blogs.each do |b| %>
-
-      <div>Title: <%= b.title%></div>
-      <div><%= b.content %></div>
-      <div><%= b.date %></div>
-
+  <div class="postDiv">
+    <div id="postTitle"><strong><%= b.title%></strong></div>
+    <div id="postContent"><%= b.content %></div>
+    <div id="postAuthorDate">Posted on <%= b.date %></div>
+  </div>
   <% end %>
 </div>
 <% end %>

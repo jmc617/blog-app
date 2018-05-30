@@ -3,7 +3,7 @@
     <h3>Current Users</h3>
     <% @users.each do |u| %>
       <div class="userDiv">
-        <a href="#"><%= u.name %></a>
+        <a href="/show/<%= u.id %>/profile"><%= u.name %></a>
       </div>
     <% end %>
   </div>
@@ -17,18 +17,8 @@
         <div id="postTitle"><strong><%= b.title%></strong></div>
         <div id="postContent"><%= b.content %></div>
         <% id= b.user_id %>
-        <div id="postAuthorDate"><p>Posted By: <%= User.find(id).name %> on <%= b.date %></p></div>
+        <div id="postAuthorDate">Posted By: <span style="color:#0099FF;"><%= User.find(id).name %></span> on <%= b.date %></div>
       </div>
     <% end %>
   </div>
 </div>
-
-
-
-<h3>Current Users</h3>
-<% @users.each do |u| %>
-  <a href="/show/<%= u.id %>/profile">
-    <%= u.name %>
-  </a>
-  <hr>
-<% end %>
