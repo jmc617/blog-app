@@ -1,0 +1,12 @@
+<div>
+  <%= @user.name %>
+  <% blogs = @user.blogs %>
+
+  <% blogs.each do |b| %>
+
+      <div>Title: <%= b.title%></div>
+      <div><%= b.content %></div>
+      <div><%= b.date %></div>
+
+  <% end %>
+</div>

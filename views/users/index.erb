@@ -6,12 +6,17 @@
     <div>Title: <%= b.title%></div>
     <div><%= b.content %></div>
     <div><%= b.date %></div>
-    <div><%= b.user_id %></div>
+    <% id= b.user_id %>
+    <div><%= User.find(id).name %></div>
+
+
   <hr>
 <% end %>
 
 <h3>Current Users</h3>
 <% @users.each do |u| %>
+  <a href="/show/<%= u.id %>/profile">
     <%= u.name %>
+  </a>
   <hr>
 <% end %>
