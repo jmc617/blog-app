@@ -11,7 +11,7 @@ get '/' do
 end
 
 get "/signup" do
-  erb :'/signup'
+  erb :'users/signup'
 end
 
 post "/create-user" do
@@ -21,6 +21,5 @@ post "/create-user" do
 
   User.create(name: username, password: password, birthdate: birthdate)
   #change redirect to home when created
-  redirect "/signup"
+  redirect "/"
 end
-
