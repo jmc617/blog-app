@@ -1,17 +1,22 @@
-<h1>Recent Posts</h1>
+<div class="mainPage">
+  <div class="leftUsers">
+    <h3>Current Users</h3>
+    <% @users.each do |u| %>
+      <div class="userDiv">
+        <a href="#"><%= u.name %></a>
+      </div>
+    <% end %>
+  </div>
 
+  <div class="rightPosts">
+    <h1>Recent Posts</h1>
 
-<% @blogs.each do |b| %>
-
-    <div>Title: <%= b.title%></div>
-    <div><%= b.content %></div>
-    <div><%= b.date %></div>
-    <div><%= b.user_id %></div>
-  <hr>
-<% end %>
-
-<h3>Current Users</h3>
-<% @users.each do |u| %>
-    <%= u.name %>
-  <hr>
-<% end %>
+    <% @blogs.each do |b| %>
+      <div class="postDiv">
+        <div id="postTitle"><strong><%= b.title%></strong></div>
+        <div id="postContent"><%= b.content %></div>
+        <div id="postAuthorDate"><p>Posted By: <%= %> on <%= b.date %></p></div>
+      </div>
+    <% end %>
+  </div>
+</div>

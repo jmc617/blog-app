@@ -2,15 +2,17 @@
     font-family: orangejuice;
     src: url(../fonts/orange-juice.ttf);
 }
-@font-face {
-    font-family: snubnose;
-    src: url(../fonts/snubnose.otf);
-}
 
+/* BACKGROUND IMAGE */
 body{
   background-image: url('../images/color-bg.jpg');
 }
+a{
+  text-decoration: none;
+  color: black;
+}
 
+/* HEADER / NAVBAR */
 nav{
   text-align: center;
   background: rgba(226, 226, 226, 0.65);
@@ -20,25 +22,22 @@ nav{
   display: grid;
   grid-template-columns: 2fr 3fr;
 }
-
 nav a{
-  text-decoration: none;
-  font-family: snubnose;
+  font-family: 'Roboto', sans-serif;
   font-size: 22px;
-  color: black;
   display: inline-block;
 }
 nav a:visited{
   color: black;
 }
 nav a:hover{
-  color: #C8C8C8;
-  /* text-shadow: 0px 2px 2px 	#E0E0E0; */
+  color: #0099FF;
 }
-
 .navLink{
   margin: 20px 40px 0 0;
   float: right;
+  border-left: 2px solid #0099FF;
+  padding-left: 1px;
 }
 .leftNav{
   grid-column-start: 1;
@@ -57,6 +56,7 @@ nav a:hover{
   margin: 5px 0 5px 30px;
 }
 
+/* CONTENT WHERE YIELD IS */
 .container{
   width: 80%;
   text-align: center;
@@ -64,4 +64,46 @@ nav a:hover{
   margin: 20px auto;
   border-radius: 5px;
   padding: 10px 0;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+/* INDEX ERB */
+.mainPage{
+  display: grid;
+  grid-template-columns: 1fr 8fr;
+}
+.leftUsers{
+  border-right: 1px solid grey;
+  padding-left: 10px;
+  text-align: left;
+}
+.leftUsers h3{
+  margin-top: 7px;
+}
+.userDiv{
+  margin: 5px auto;
+}
+.userDiv a:hover{
+  color: #0099FF;
+}
+
+.rightPosts{
+  margin-left: 40px;
+  text-align: left;
+}
+.rightPosts h1{
+  margin-top: -1px;
+}
+#postTitle{
+  margin-bottom: 20px;
+  margin-right: 40px;
+}
+#postContent{
+  margin-bottom: 5px;
+  margin-right: 40px;
+  border: 2px solid;
+}
+#postAuthorDate{
+  margin-right: 40px;
+  float: right;
 }
