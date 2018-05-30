@@ -1,1 +1,17 @@
-<h1>hello these are blog posts</h1>
+<h1>Recent Posts</h1>
+
+
+<% @blogs.each do |b| %>
+
+    <div>Title: <%= b.title%></div>
+    <div><%= b.content %></div>
+    <div><%= b.date %></div>
+    <div><%= b.user_id %></div>
+  <hr>
+<% end %>
+
+<h3>Current Users</h3>
+<% @users.each do |u| %>
+    <%= u.name %>
+  <hr>
+<% end %>
