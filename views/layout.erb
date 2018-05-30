@@ -17,7 +17,7 @@
       <a class="navLink" href="/signup">Sign up</a>
       <a class="navLink" href="/login">Login</a>
       <a class="navLink" href="/newPost">New Post</a>
-      <a class="navLink" href="/profile">Profile</a>
+      <a class="navLink" href="/show/<%= session[:user_id] %>/profile">Profile</a>
       <form action="/logout" method='post'>
         <input type="submit" value="Logout">
       </form>
