@@ -20,6 +20,20 @@ post "/create-user" do
   birthdate = params[:birthdate]
 
   User.create(name: username, password: password, birthdate: birthdate)
-  #change redirect to home when created
   redirect "/"
 end
+
+get "/newPost" do
+  erb :'posts/newposts'
+end
+
+post "/create-blog" do
+  title = params[:title]
+  content = params[:content]
+  date = DateTime.now
+
+  Blog.create(title: title, content: content, date: date)
+
+  redirect "/"
+end
+
