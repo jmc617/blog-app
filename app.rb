@@ -36,3 +36,4 @@ post "/create-blog" do
 
   redirect "/"
 end
+
