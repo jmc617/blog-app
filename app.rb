@@ -31,7 +31,7 @@ end
 post "/create-blog" do
   title = params[:title]
   content = params[:content]
-  date = DateTime.now
+  date = DateTime.now.to_date
 
   Blog.create(title: title, content: content, date: date)
 
