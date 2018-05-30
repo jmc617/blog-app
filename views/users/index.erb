@@ -11,12 +11,24 @@
   <div class="rightPosts">
     <h1>Recent Posts</h1>
 
+
     <% @blogs.each do |b| %>
       <div class="postDiv">
         <div id="postTitle"><strong><%= b.title%></strong></div>
         <div id="postContent"><%= b.content %></div>
-        <div id="postAuthorDate"><p>Posted By: <%= %> on <%= b.date %></p></div>
+        <% id= b.user_id %>
+        <div id="postAuthorDate"><p>Posted By: <%= User.find(id).name %> on <%= b.date %></p></div>
       </div>
     <% end %>
   </div>
 </div>
+
+
+
+<h3>Current Users</h3>
+<% @users.each do |u| %>
+  <a href="/show/<%= u.id %>/profile">
+    <%= u.name %>
+  </a>
+  <hr>
+<% end %>
