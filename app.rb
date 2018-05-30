@@ -4,6 +4,12 @@ require 'sinatra/activerecord'
  set :sessions, true
 require './models'
 
+#homepage
+get '/' do
+  @users = User.all
+  erb :'users/index'
+end
+
 get "/signup" do
   erb :'/signup'
 end
@@ -17,3 +23,4 @@ post "/create-user" do
   #change redirect to home when created
   redirect "/signup"
 end
+

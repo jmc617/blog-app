@@ -1,1 +1,17 @@
-layout erb
+body{
+  background-image: url('../images/color-bg.jpg');
+}
+
+nav{
+  text-align: center;
+  background: rgba(226, 226, 226, 0.5);
+  width: 80%;
+  margin: 0 auto;
+}
+
+.container{
+  width: 80%;
+  text-align: center;
+  background: rgba(226, 226, 226, 0.5);
+  margin: 0 auto;
+}
