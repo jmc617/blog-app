@@ -21,8 +21,10 @@
       <% else %>
         <a class="navLink" href="/login">Log In</a>
       <% end %>
+      <% if current_user %>
       <a class="navLink" href="/newPost">New Post</a>
       <a class="navLink" href="/show/<%= session[:user_id] %>/profile">Profile</a>
+      <% end %>
     </div>
   </nav>
 
