@@ -74,3 +74,29 @@ get "/show/:id/profile" do
 @user = User.find(params[:id])
 erb :'/users/profile'
 end
+
+post "/change-blog/:id" do
+  blog = Blog.find(params[:id])
+  blog.update(title: params[:title], content: params[:content])
+  redirect "/"
+end
+post "/change-user/:id" do
+  user = User.find(params[:id])
+  user.update(name: params[:name], birthdate: params[:birthdate], password: params[:password])
+  redirect "/"
+end
+post "/destroy/blog/:id" do
+  @blog = Blog.find(params[:id])
+  @blog.destroy
+  redirect "/"
+end
+post "/destroy/user/:id" do
+  session[:user_id] = nil
+  @user = User.find(params[:id])
+  @user.blogs.each do |b|
+    b.destroy
+  end
+  @user.destroy
+
+  redirect "/"
+end

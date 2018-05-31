@@ -92,16 +92,52 @@ h2{
 </style>
 
 <% if current_user  &&  current_user.id == @user.id%>
-  <div><%= 'hello' %><div>
+  <h1>Your Profile Page</h1>
+  <form action="/change-user/<%= @user.id %>" method="post">
+    <h3>Edit Profile Information</h3>
+    <div>Name: <%= @user.name %></div>
+    <input type="text" name="name" placeholder="new name or retype">
+    <div>Birthdate: <%= @user.birthdate %></div>
+    <input type="text" name="birthdate" placeholder="new birthdate or retype">
+    <div>Password: <%= @user.password %></div>
+    <input type="text" name="password" placeholder="new password or retype">
+    <div><input type="submit" value="save changes"></div>
+  </form>
+  <form action="/destroy/user/<%= @user.id %>" method="post">
+    <input type="submit" value="Delete Profile">
+  </form>
+  <h3>Update Blogs</h3>
+  <div class="profilePosts">
+    <% blogs = @user.blogs %>
+
+    <% blogs.reverse.each do |b| %>
+
+      <div class="postDiv">
+        <form action="/change-blog/<%= b.id %>" method="post">
+          <div id="postTitle"><strong>Title:<%= b.title%></strong></div>
+          <input type="text" name="title" placeholder="new title or retype">
+          <div id="postContent">Content:<%= b.content %></div>
+          <input type="text" name="content" placeholder="new content or retype">
+          <div id="postAuthorDate">Posted on <%= b.date %></div>
+          <input type="submit" value="update blog">
+        </form>
+        <form action="/destroy/blog/<%= b.id %>" method="post">
+          <input type="submit" value="Delete Post">
+        </form>
+      </div>
+    <% end %>
+  </div>
+
 <% else %>
+
+<h1><%= @user.name %>'s Profile Page</h1>
 <div>
-  <%= @user.name %>
-  <% blogs = @user.blogs %>
+  <!-- <%= @user.name %> -->
 <div class="profilePosts">
   <h2><%= @user.name %>'s Posts</h2>
   <% blogs = @user.blogs %>
 
-  <% blogs.each do |b| %>
+  <% blogs.reverse.each do |b| %>
   <div class="postDiv">
     <div id="postTitle"><strong><%= b.title%></strong></div>
     <div id="postContent"><%= b.content %></div>
