@@ -36,6 +36,11 @@ get "/newPost" do
   erb :'posts/newposts'
 end
 
+get "/blog/:id" do
+  @blog = Blog.find(params[:id])
+  erb :"posts/showpost"
+end
+
 post "/create-blog" do
   title = params[:title]
   content = params[:content]
@@ -46,7 +51,7 @@ post "/create-blog" do
   else
    current_user = User.find(session[:user_id])
    Blog.create(title: title, content: content, date: date, user_id: current_user.id)
-   redirect "/"
+   redirect "/show/:id/showpost"
   end
 end
 
