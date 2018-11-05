@@ -51,7 +51,7 @@ post "/create-blog" do
   else
    current_user = User.find(session[:user_id])
    Blog.create(title: title, content: content, date: date, user_id: current_user.id)
-   redirect "/show/:id/showpost"
+   redirect "/"
   end
 end
 
